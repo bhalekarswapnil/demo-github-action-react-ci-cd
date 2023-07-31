@@ -27,7 +27,8 @@ jobs:
         push: true
         tags: ghcr.io/${{ github.repository_owner }}/my-reactapp:latest
         dockerfile: Dockerfile
-   - name: Deploy to EC2
+   
+    - name: Deploy to EC2
       env:
         SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         SSH_USERNAME: ubuntu
