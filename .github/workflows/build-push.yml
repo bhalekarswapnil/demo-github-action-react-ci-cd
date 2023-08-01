@@ -54,5 +54,8 @@ jobs:
         run: |
           ssh ${{ secrets.USERNAME }}@${{ secrets.KNOWN_HOSTS }} -i ~/.ssh/github_actions "docker login ${{ env.GITHUB_PACKAGE_URL }} -u ${{ secrets.REGISTRY_USERNAME }} --password ${{ secrets.GHCR_PAT }}"
           ssh ${{ secrets.USERNAME }}@${{ secrets.KNOWN_HOSTS }} -i ~/.ssh/github_actions "docker pull $DOCKER_IMAGE_TAG"
+          ssh ${{ secrets.USERNAME }}@${{ secrets.KNOWN_HOSTS }} -i ~/.ssh/github_actions "docker run -d --name my-reactapp -p 80:80 $DOCKER_IMAGE_TAG"
+
+
 
           
