@@ -51,5 +51,5 @@ jobs:
           SSH_AUTH_SOCK: /tmp/ssh_agent.sock
           GITHUB_PACKAGE_URL: ghcr.io
         run: |
-          ssh ${{ secrets.USERNAME }}@${{ secrets.KNOWN_HOSTS }} -i ~/.ssh/github_actions "docker login ${{ env.GITHUB_PACKAGE_URL }} -u ${{ secrets.REGISTRY_USERNAME }} --password ${{ secrets.GHCR_PAT }}
+          ssh ${{ secrets.USERNAME }}@${{ secrets.KNOWN_HOSTS }} -i ~/.ssh/github_actions "docker login ${{ env.GITHUB_PACKAGE_URL }} -u ${{ secrets.REGISTRY_USERNAME }} --password ${{ secrets.GHCR_PAT }}"
           
