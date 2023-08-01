@@ -37,7 +37,7 @@ jobs:
       run: |
         mkdir -p ~/.ssh
         echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
-        chmod 600 ~/.ssh/id_rsa
+        chmod 400 ~/.ssh/id_rsa
         ssh-keyscan -H $EC2_PUBLIC_IP >> ~/.ssh/known_hosts
         scp -i ~/.ssh/id_rsa -r docker-compose.yml $DOCKER_IMAGE_TAG YOUR_EC2_USERNAME@$EC2_PUBLIC_IP:/home/YOUR_EC2_USERNAME/
         ssh -i ~/.ssh/id_rsa YOUR_EC2_USERNAME@$EC2_PUBLIC_IP 'docker pull $DOCKER_IMAGE_TAG'
