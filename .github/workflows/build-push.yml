@@ -28,7 +28,7 @@ jobs:
         context: .
         push: true
         tags: ghcr.io/${{ github.repository_owner }}/my-reactapp:latest
-        dockerfile: Dockerfile
+        dockerfile: UI/Dockerfile
   deploy:
     name: deploy to AWS EC2
     runs-on: ubuntu-latest
