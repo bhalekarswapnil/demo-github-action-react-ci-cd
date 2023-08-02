@@ -13,7 +13,7 @@ FROM nginx:alpine
 
 COPY --from=build /app/build /usr/share/nginx/html
 
-#Run ui 1
+#Run ui 2
 EXPOSE 80
 
 CMD ["nginx", "-g", "daemon off;"]
