@@ -10,6 +10,7 @@ on:
 jobs:
   UI:
     runs-on: ubuntu-latest
+    if: github.event_name == 'push' && github.event.paths.UI != null
 
     steps:
     - name: Check out the code
@@ -31,6 +32,8 @@ jobs:
         dockerfile: Dockerfile
   Backend:
     runs-on: ubuntu-latest
+    if: github.event_name == 'push' && github.event.paths.Backend != null
+
 
     steps:
     - name: Check out the code
