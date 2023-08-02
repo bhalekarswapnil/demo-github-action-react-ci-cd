@@ -29,12 +29,32 @@ jobs:
         push: true
         tags: ghcr.io/${{ github.repository_owner }}/my-reactapp:latest
         dockerfile: Dockerfile
+  Backend:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out the code
+      uses: actions/checkout@v2
+
+    - name: Login to GitHub Container Registry
+      uses: docker/login-action@v1
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GHCR_PAT }}
+
+    - name: Build and Push Docker image
+      uses: docker/build-push-action@v2
+      with:
+        context: ./Backend
+        push: true
+        tags: ghcr.io/${{ github.repository_owner }}/my-springboot:latest
+        dockerfile: Dockerfile      
   deploy:
     name: deploy to AWS EC2
     runs-on: ubuntu-latest
     needs:
-       - UI
-           
+       - UI     
     steps:
       - name: checking into repo
         uses: actions/checkout@v2
