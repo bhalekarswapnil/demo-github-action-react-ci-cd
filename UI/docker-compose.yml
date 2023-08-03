@@ -1,0 +1,6 @@
+version: '3'
+services:
+  my-react-app:
+    image: ghcr.io/your_username/my-reactapp :latest
+    ports:
+      - "80:80"
